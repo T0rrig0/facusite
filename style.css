@@ -1,26 +1,115 @@
+/* Definição geral do site */
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 50px;
+}
+
+h1 {
+    color: red;
+}
+
+/* Barra de navegação horizontal */
+nav {
+    background-color: #222;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo {
+    font-size: 14pt;
+    color: red;
+    font-weight: bold;
+}
+
+nav .menu {
+    display: flex;
+    gap: 20px;
+}
+
+nav .menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 14pt;
+    padding: 10px 15px;
+}
+
+nav .menu a:hover {
+    background-color: red;
+}
+
+nav .login-form {
+    display: flex;
+    gap: 10px;
+}
+
+nav .login-form input {
+    padding: 5px;
+    font-size: 12pt;
+}
+
+nav .login-form button {
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+nav .login-form button:hover {
+    background-color: darkred;
+}
+
+nav .user-info {
+    color: white;
+    display: flex;
+    gap: 10px;
+}
+
+nav .user-info button {
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+nav .user-info button:hover {
+    background-color: darkred;
+}
+
 /* Configurações da galeria de imagens */
 .image-gallery {
-    display: grid; /* Utilizando Grid Layout */
-    grid-template-columns: repeat(4, 1fr); /* 4 colunas, cada uma ocupando 1 fração do espaço disponível */
-    gap: 20px; /* Espaçamento de 20px entre as imagens */
+    display: grid; /* Usando grid layout */
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+    gap: 20px; /* Espaçamento entre as imagens */
     padding: 20px 0;
 }
 
 .image-item {
-    width: 100%; /* As imagens ocupam toda a largura da coluna */
-    height: 320px; /* Definindo a altura */
+    width: 100%; /* As imagens ocupam toda a coluna */
+    height: 320px; /* Definindo altura fixa */
     overflow: hidden;
 }
 
 .image-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Cobre o espaço da imagem sem distorção */
-    border-radius: 10px; /* Bordas arredondadas para as imagens */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra ao redor das imagens */
+    object-fit: cover; /* Ajusta a imagem dentro da caixa */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
 }
 
 .image-item:hover img {
-    transform: scale(1.05); /* Aumenta ligeiramente ao passar o mouse */
+    transform: scale(1.05); /* Aumenta ligeiramente a imagem no hover */
     transition: 0.3s ease; /* Transição suave */
 }
