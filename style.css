@@ -25,9 +25,10 @@ nav {
     align-items: center;
 }
 
-nav .logo {
+nav .logo a{
     font-size: 14pt;
     color: red;
+    text-decoration: none;
     font-weight: bold;
 }
 
