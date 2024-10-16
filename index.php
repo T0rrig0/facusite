@@ -45,9 +45,10 @@ session_start();
                 // Movie data
                 $movies = [
                     [
-                        "title" => "", 
-                        "description" => "", 
-                        "image" => "imagens/null.jpg" 
+                        "title" => "Batman:",
+                        "subtitle-small" => "O Cavaleiro das Trevas",
+                        "description" => "Descrição", 
+                        "image" => "imagens/darkknight0.jpg" 
                     ],
                     [
                         "title" => "Top Gun:",
@@ -127,6 +128,7 @@ session_start();
                     echo '<div class="content">';
                     echo '<h2>' . $movie['title'] . '</h2>';
                     if(isset($movie['subtitle'])){echo '<span><h3>'. $movie['subtitle'] . '</h3></span>';}
+                    elseif(isset($movie['subtitle-small'])){echo '<span><h4>'. $movie['subtitle'] . '</h4></span>';}
                     echo '<span>' . $movie['description'] . '</span>';
                     echo '</div>';
                     echo '</div>';
