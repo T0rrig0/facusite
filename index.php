@@ -45,6 +45,16 @@ session_start();
                 // Movie data
                 $movies = [
                     [
+                        "title" => "", 
+                        "description" => "", 
+                        "image" => "imagens/null.jpg" 
+                    ],
+                    [
+                        "title" => "", 
+                        "description" => "", 
+                        "image" => "imagens/null.jpg" 
+                    ],
+                    [
                         "title" => "Deadpool", 
                         "description" => "Description for Deadpool", 
                         "image" => "imagens/deadpool1.jpg" 
@@ -115,66 +125,6 @@ session_start();
                 ?>
             </div>
         </div>
-
-        <script>
-            const container = document.querySelector('.carousel-container .container');
-
-            let currentIndex = 0;
-            const cardWidth = 120; 
-            const containerWidth = container.offsetWidth;
-            let maxIndex = <?php echo count($movies) - 1; ?>;
-            let isDragging = false;
-            let startX;
-            let scrollLeft;
-
-            container.addEventListener('mousedown', startDrag);
-            container.addEventListener('mousemove', drag);
-            container.addEventListener('mouseup', endDrag);
-            container.addEventListener('touchstart', startDrag);
-            container.addEventListener('touchmove', drag);
-            container.addEventListener('touchend', endDrag);
-
-            function startDrag(event) {
-                isDragging = true;
-                startX = event.clientX || event.touches[0].clientX;
-                scrollLeft = container.scrollLeft;
-            }
-
-            function drag(event) {
-                if (!isDragging) return;
-
-                event.preventDefault();
-                const x = event.clientX || event.touches[0].clientX;
-                const walk = (x - startX) * 3; // Adjust the speed of the scroll
-                container.scrollLeft = scrollLeft - walk;
-            }
-
-            function endDrag() {
-                isDragging = false;
-
-                const scrollPos = container.scrollLeft;
-                const cardIndex = Math.round(scrollPos / cardWidth);
-
-                currentIndex = Math.max(0, Math.min(cardIndex, maxIndex));
-
-                container.scrollTo({
-                    left: currentIndex * cardWidth,
-                    behavior: 'smooth'
-                });
-            }
-
-            // Add hover effect to movie cards
-            const movieCards = document.querySelectorAll('.movie-card');
-            movieCards.forEach(card => {
-                card.addEventListener('mouseenter', () => {
-                    card.classList.add('active');
-                });
-                card.addEventListener('mouseleave', () => {
-                    card.classList.remove('active');
-                });
-            });
-
-        </script>
     </div>
 
     </body>
