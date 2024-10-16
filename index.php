@@ -55,7 +55,8 @@ session_start();
                         "image" => "imagens/null.jpg" 
                     ],
                     [
-                        "title" => "Deadpool", 
+                        "title" => "Deadpool",
+                        "subtitle" => "& Wolverine",
                         "description" => "Description for Deadpool", 
                         "image" => "imagens/deadpool1.jpg" 
                     ],
@@ -65,7 +66,8 @@ session_start();
                         "image" => "imagens/joker3.jpg" 
                     ],
                     [
-                        "title" => "Venom", 
+                        "title" => "Venom:",
+                        "subtitle" => "Tempo de Carnificina",
                         "description" => "Description for Venom", 
                         "image" => "imagens/venom4.jpg" 
                     ],
@@ -80,7 +82,8 @@ session_start();
                         "image" => "imagens/it6.jpg" 
                     ],
                     [
-                        "title" => "Vingadores", 
+                        "title" => "Vingadores:",
+                        "subtitle" => "Guerra Infinita",
                         "description" => "Description for Vingadores", 
                         "image" => "imagens/vingadores7.jpg" 
                     ],
@@ -100,7 +103,8 @@ session_start();
                         "image" => "imagens/velozes10.jpg" 
                     ],
                     [
-                        "title" => "Homem Aranha", 
+                        "title" => "Homem Aranha:",
+                        "subtitle" => "Sem Volta Para Casa",
                         "description" => "Description for Homem Aranha", 
                         "image" => "imagens/aranha11.jpg" 
                     ],
@@ -117,6 +121,7 @@ session_start();
                     echo '<div class="movie-card" style="background-image: url(' . $movie['image'] . ');">';
                     echo '<div class="content">';
                     echo '<h2>' . $movie['title'] . '</h2>';
+                    if(isset($movie['subtitle'])){echo '<span><h3>'. $movie['subtitle'] . '</h3></span>';}
                     echo '<span>' . $movie['description'] . '</span>';
                     echo '</div>';
                     echo '</div>';
