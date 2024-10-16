@@ -50,9 +50,10 @@ session_start();
                         "image" => "imagens/null.jpg" 
                     ],
                     [
-                        "title" => "", 
-                        "description" => "", 
-                        "image" => "imagens/null.jpg" 
+                        "title" => "Top Gun:",
+                        "subtitle" => "Maverick",
+                        "description" => "Descrição", 
+                        "image" => "imagens/topgun2.jpg" 
                     ],
                     [
                         "title" => "Deadpool",
@@ -61,7 +62,7 @@ session_start();
                         "image" => "imagens/deadpool1.jpg" 
                     ],
                     [
-                        "title" => "Joker", 
+                        "title" => "Coringa", 
                         "description" => "Description for Joker", 
                         "image" => "imagens/joker3.jpg" 
                     ],
@@ -77,7 +78,8 @@ session_start();
                         "image" => "imagens/corvo5.jpg" 
                     ],
                     [
-                        "title" => "IT", 
+                        "title" => "IT",
+                        "subtitle" => "- Capítulo Dois",
                         "description" => "Description for IT", 
                         "image" => "imagens/it6.jpg" 
                     ],
@@ -88,17 +90,19 @@ session_start();
                         "image" => "imagens/vingadores7.jpg" 
                     ],
                     [
-                        "title" => "O Malvado", 
+                        "title" => "Meu Malvado",
+                        "subtitle" => "Favorito 4",
                         "description" => "Description for O Malvado", 
                         "image" => "imagens/malvado8.jpg" 
                     ],
                     [
-                        "title" => "Baby Driver", 
+                        "title" => "Em Ritmo de Fuga", 
                         "description" => "Description for Baby Driver", 
                         "image" => "imagens/babydriver9.jpg" 
                     ],
                     [
-                        "title" => "Velozes e Furiosos", 
+                        "title" => "Velozes e Furiosos:",
+                        "subtitle" => "Desafio em Tóquio",
                         "description" => "Description for Velozes e Furiosos", 
                         "image" => "imagens/velozes10.jpg" 
                     ],
@@ -109,7 +113,8 @@ session_start();
                         "image" => "imagens/aranha11.jpg" 
                     ],
                     [
-                        "title" => "Harry Potter", 
+                        "title" => "Harry Potter",
+                        "subtitle" => "e a Pedra Filosofal",
                         "description" => "Description for Harry Potter", 
                         "image" => "imagens/harry12.jpg" 
                     ]
