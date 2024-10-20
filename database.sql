@@ -29,6 +29,7 @@ CREATE TABLE `movies` (
   `subtitle_small` varchar(255) DEFAULT NULL,
   `description` text,
   `image` varchar(255) DEFAULT NULL,
+  `rating` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -40,19 +41,19 @@ CREATE TABLE `movies` (
 LOCK TABLES `movies` WRITE;
 /*!40000 ALTER TABLE `movies` DISABLE KEYS */;
 INSERT INTO `movies` VALUES 
-(1,'Batman:','O Cavaleiro das Trevas',NULL,'Description for Batman','imagens/darkknight0.jpg'),
-(2,'Top Gun:','Maverick',NULL,'Description for Top Gun','imagens/topgun2.jpg'),
-(3,'Deadpool','& Wolverine',NULL,'Description for Deadpool','imagens/deadpool1.jpg'),
-(4,'Coringa',NULL,NULL,'Description for Joker','imagens/joker3.jpg'),
-(5,'Venom:','Tempo de Carnificina',NULL,'Description for Venom','imagens/venom4.jpg'),
-(6,'O Corvo',NULL,NULL,'Description for O Corvo','imagens/corvo5.jpg'),
-(7,'IT','- Captulo Dois',NULL,'Description for IT','imagens/it6.jpg'),
-(8,'Vingadores:','Guerra Infinita',NULL,'Description for Vingadores','imagens/vingadores7.jpg'),
-(9,'Meu Malvado','Favorito 4',NULL,'Description for O Malvado','imagens/malvado8.jpg'),
-(10,'Em Ritmo de Fuga',NULL,NULL,'Description for Baby Driver','imagens/babydriver9.jpg'),
-(11,'Velozes e Furiosos:','Desafio em Tquio',NULL,'Description for Velozes e Furiosos','imagens/velozes10.jpg'),
-(12,'Homem Aranha:','Sem Volta Para Casa',NULL,'Description for Homem Aranha','imagens/aranha11.jpg'),
-(13,'Harry Potter','e a Pedra Filosofal',NULL,'Description for Harry Potter','imagens/harry12.jpg');
+(41,'Batman:','O Cavaleiro das Trevas',NULL,'Description for Batman','imagens/darkknight0.jpg', 'Unknown'),
+(42,'Top Gun:','Maverick',NULL,'Description for Top Gun','imagens/topgun2.jpg', 'Unknown'),
+(43,'Deadpool','& Wolverine',NULL,'Description for Deadpool','imagens/deadpool1.jpg', 'Unknown'),
+(44,'Coringa',NULL,NULL,'Description for Joker','imagens/joker3.jpg', 'Unknown'),
+(45,'Venom:','Tempo de Carnificina',NULL,'Description for Venom','imagens/venom4.jpg', 'Unknown'),
+(46,'O Corvo',NULL,NULL,'Description for O Corvo','imagens/corvo5.jpg', 'Unknown'),
+(47,'IT','- Captulo Dois',NULL,'Description for IT','imagens/it6.jpg', 'Unknown'),
+(48,'Vingadores:','Guerra Infinita',NULL,'Description for Vingadores','imagens/vingadores7.jpg', 'Unknown'),
+(49,'Meu Malvado','Favorito 4',NULL,'Description for O Malvado','imagens/malvado8.jpg', 'Unknown'),
+(50,'Em Ritmo de Fuga',NULL,NULL,'Description for Baby Driver','imagens/babydriver9.jpg', 'Unknown'),
+(51,'Velozes e Furiosos:','Desafio em Tquio',NULL,'Description for Velozes e Furiosos','imagens/velozes10.jpg', 'Unknown'),
+(52,'Homem Aranha:','Sem Volta Para Casa',NULL,'Description for Homem Aranha','imagens/aranha11.jpg', 'Unknown'),
+(53,'Harry Potter','e a Pedra Filosofal',NULL,'Description for Harry Potter','imagens/harry12.jpg', 'Unknown');
 
 /*!40000 ALTER TABLE `movies` ENABLE KEYS */;
 UNLOCK TABLES;
