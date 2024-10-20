@@ -313,11 +313,17 @@ nav .user-info button:hover {
 
 .genre_selection a {
     color: red;
+    padding: 2px;
+    background-color: black;
+    border: 2px solid red;
     text-decoration: none;
+    transition: 1s;
 }
 
 .genre_selection a:hover {
     color: white;
+    padding: 5px;
+    background-color: red;
     text-decoration: underline;
 }
 
