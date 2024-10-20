@@ -1,5 +1,24 @@
 <?php
 session_start();
+
+// Database connection details
+                    $servername = "localhost:3306";
+                    $username = "root";
+                    $password = "root";
+                    $dbname = "home_movies";
+
+                    // Create connection
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+
+                    // Check connection
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
+
+                    // Fetch movie data from the database
+                    $sql = "SELECT * FROM movies";
+                    $result = $conn->query($sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -41,99 +60,24 @@ session_start();
         <!-- Carousel section -->
         <div class="carousel-container">
             <div class="container">
-                <?php 
-                // Movie data
-                $movies = [
-                    [
-                        "title" => "Batman:",
-                        "subtitle-small" => "O Cavaleiro das Trevas",
-                        "description" => "Descrição", 
-                        "image" => "imagens/darkknight0.jpg" 
-                    ],
-                    [
-                        "title" => "Top Gun:",
-                        "subtitle" => "Maverick",
-                        "description" => "Descrição", 
-                        "image" => "imagens/topgun2.jpg" 
-                    ],
-                    [
-                        "title" => "Deadpool",
-                        "subtitle" => "& Wolverine",
-                        "description" => "Description for Deadpool", 
-                        "image" => "imagens/deadpool1.jpg" 
-                    ],
-                    [
-                        "title" => "Coringa", 
-                        "description" => "Description for Joker", 
-                        "image" => "imagens/joker3.jpg" 
-                    ],
-                    [
-                        "title" => "Venom:",
-                        "subtitle" => "Tempo de Carnificina",
-                        "description" => "Description for Venom", 
-                        "image" => "imagens/venom4.jpg" 
-                    ],
-                    [
-                        "title" => "O Corvo", 
-                        "description" => "Description for O Corvo", 
-                        "image" => "imagens/corvo5.jpg" 
-                    ],
-                    [
-                        "title" => "IT",
-                        "subtitle" => "- Capítulo Dois",
-                        "description" => "Description for IT", 
-                        "image" => "imagens/it6.jpg" 
-                    ],
-                    [
-                        "title" => "Vingadores:",
-                        "subtitle" => "Guerra Infinita",
-                        "description" => "Description for Vingadores", 
-                        "image" => "imagens/vingadores7.jpg" 
-                    ],
-                    [
-                        "title" => "Meu Malvado",
-                        "subtitle" => "Favorito 4",
-                        "description" => "Description for O Malvado", 
-                        "image" => "imagens/malvado8.jpg" 
-                    ],
-                    [
-                        "title" => "Em Ritmo de Fuga", 
-                        "description" => "Description for Baby Driver", 
-                        "image" => "imagens/babydriver9.jpg" 
-                    ],
-                    [
-                        "title" => "Velozes e Furiosos:",
-                        "subtitle" => "Desafio em Tóquio",
-                        "description" => "Description for Velozes e Furiosos", 
-                        "image" => "imagens/velozes10.jpg" 
-                    ],
-                    [
-                        "title" => "Homem Aranha:",
-                        "subtitle" => "Sem Volta Para Casa",
-                        "description" => "Description for Homem Aranha", 
-                        "image" => "imagens/aranha11.jpg" 
-                    ],
-                    [
-                        "title" => "Harry Potter",
-                        "subtitle" => "e a Pedra Filosofal",
-                        "description" => "Description for Harry Potter", 
-                        "image" => "imagens/harry12.jpg" 
-                    ]
-                    // Add more movies here...
-                ];
+                <?php
+                    // Generate the movie cards HTML
+                    if ($result->num_rows > 0) {
+                      while($row = $result->fetch_assoc()) {
+                        echo '<div class="movie-card" style="background-image: url(' . $row['image'] . ');">';
+                        echo '<div class="content">';
+                        echo '<h2>' . $row['title'] . '</h2>';
+                        if(isset($row['subtitle'])){echo '<span><h3>'. $row['subtitle'] . '</h3></span>';}
+                        elseif(isset($row['subtitle_small'])){echo '<span><h4>'. $row['subtitle_small'] . '</h4></span>';}
+                        echo '<span>' . $row['description'] . '</span>';
+                        echo '</div>';
+                        echo '</div>';
+                      }
+                    } else {
+                      echo "No movies found.";
+                    }
 
-                // Generate the movie cards HTML
-                foreach ($movies as $movie) {
-                    echo '<div class="movie-card" style="background-image: url(' . $movie['image'] . ');">';
-                    echo '<div class="content">';
-                    echo '<h2>' . $movie['title'] . '</h2>';
-                    if(isset($movie['subtitle'])){echo '<span><h3>'. $movie['subtitle'] . '</h3></span>';}
-                    elseif(isset($movie['subtitle-small'])){echo '<span><h4>'. $movie['subtitle'] . '</h4></span>';}
-                    echo '<span>' . $movie['description'] . '</span>';
-                    echo '</div>';
-                    echo '</div>';
-                } 
-
+                    $conn->close();
                 ?>
             </div>
         </div>

@@ -1,9 +1,45 @@
+<?php
+session_start();
+
+// Database connection details
+$servername = "localhost:3306";
+$username = "root";
+$password = "root";
+$dbname = "home_movies";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Function to fetch movies by genre
+function getMoviesByGenre($genre, $conn) {
+    $sql = "SELECT * FROM ranking_movies WHERE genre = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $genre); 
+    $stmt->execute();
+    $result = $stmt->get_result();
+    return $result; 
+}
+
+// Get the genre from the URL parameter
+$genre = isset($_GET['genre']) ? $_GET['genre'] : ''; // Default to empty if not set
+
+// Fetch all movies (for the initial display)
+$sql = "SELECT * FROM ranking_movies";
+$allMoviesResult = $conn->query($sql); // Store result in a separate variable
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlixRate - Ranking por Gênero</title>
+    <title>FlixRate - Home</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -31,102 +67,65 @@
             <?php endif; ?>
         </div>
     </nav>
+    <h1>Bem-vindo ao FlixRate</h1>
+    <p>Descubra as melhores séries, explore rankings e veja novidades!</p>
 
-    <div class="ranking_container">
-        <h1>Ranking por Gênero</h1>
-        <p>Escolha um gênero para ver as séries mais bem classificadas.</p>
+    <!-- Genre Selection Section -->
+    <div class="genre_selection">
+        <h2>Explore por Gênero</h2>
+        <a href="ranking.php">Todos</a>
+        <a href="ranking.php?genre=acao">Ação</a>
+        <a href="ranking.php?genre=comedia">Comédia</a>
+        <a href="ranking.php?genre=drama">Drama</a>
+        <a href="ranking.php?genre=fantasia">Fantasia</a>
+        <a href="ranking.php?genre=ficcao">Ficcao</a>
+        <a href="ranking.php?genre=terror">Terror</a>
+        <a href="ranking.php?genre=romance">Romance</a>
+        <a href="ranking.php?genre=misterio">Mistério</a>
+    </div>
 
-        <div class="genre-selection">
-            <button onclick="showGenre('acao')">Ação</button>
-            <button onclick="showGenre('comedia')">Comédia</button>
-            <button onclick="showGenre('drama')">Drama</button>
-            <button onclick="showGenre('fantasia')">Fantasia</button>
-            <button onclick="showGenre('ficcao')">Ficção Científica</button>
-            <button onclick="showGenre('terror')">Terror</button>
-            <button onclick="showGenre('romance')">Romance</button>
-            <button onclick="showGenre('misterio')">Mistério</button>
-        </div>
-
-        <div id="genre-gallery" class="image-gallery">
-            <!-- Movie cards will be loaded here -->
+    <!-- Carousel Section -->
+    <div class="carousel-container">
+        <div class="container" id="movie-carousel">
+            <?php
+                // Display movies based on the selected genre or all movies
+                if (!empty($genre)) {
+                    $result = getMoviesByGenre($genre, $conn);
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<div class="movie-card" style="background-image: url(' . $row['image'] . ');">';
+                            echo '<div class="content">';
+                            echo '<h2>' . $row['title'] . '</h2>';
+                            if(isset($row['subtitle'])){echo '<span><h3>'. $row['subtitle'] . '</h3></span>';}
+                            elseif(isset($row['subtitle_small'])){echo '<span><h4>'. $row['subtitle_small'] . '</h4></span>';}
+                            echo '<span>' . $row['description'] . '</span>';
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                    } else {
+                        echo "No movies found for this genre.";
+                    }
+                } else {
+                    // Display all movies 
+                    if ($allMoviesResult->num_rows > 0) {
+                        while ($row = $allMoviesResult->fetch_assoc()) {
+                            echo '<div class="movie-card" style="background-image: url(' . $row['image'] . ');">';
+                            echo '<div class="content">';
+                            echo '<h2>' . $row['title'] . '</h2>';
+                            if(isset($row['subtitle'])){echo '<span><h3>'. $row['subtitle'] . '</h3></span>';}
+                            elseif(isset($row['subtitle_small'])){echo '<span><h4>'. $row['subtitle_small'] . '</h4></span>';}
+                            echo '<span>' . $row['description'] . '</span>';
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                    } else {
+                        echo "No movies found.";
+                    }
+                }
+                $conn->close();
+            ?>
         </div>
     </div>
 
-    <script>
-        function showGenre(genre) {
-            const gallery = document.getElementById('genre-gallery');
-            let content = '';
-
-            <?php 
-                // PHP code to fetch the movies array
-                $movies = [
-                    'acao' => [
-                        [
-                            "title" => "John Wick",
-                            "description" => "Description for John Wick",
-                            "image" => "imagens/acao1.jpg"
-                        ],
-                        [
-                            "title" => "Mad Max",
-                            "description" => "Description for Mad Max",
-                            "image" => "imagens/acao2.jpg"
-                        ],
-                        [
-                            "title" => "The Raid",
-                            "description" => "Description for The Raid",
-                            "image" => "imagens/acao3.jpg"
-                        ],
-                        [
-                            "title" => "Mission Impossible",
-                            "description" => "Description for Mission Impossible",
-                            "image" => "imagens/acao4.jpg"
-                        ],
-                        [
-                            "title" => "Fast and Furious",
-                            "description" => "Description for Fast and Furious",
-                            "image" => "imagens/acao5.jpg"
-                        ],
-                    ],
-                    'comedia' => [
-                        // ... ( comedy movies)
-                    ],
-                    'drama' => [
-                        // ... (Add drama movies)
-                    ],
-                    'fantasia' => [
-                        // ... (Add fantasy movies)
-                    ],
-                    'ficcao' => [
-                        // ... (Add sci-fi movies)
-                    ],
-                    'terror' => [
-                        // ... (Add horror movies)
-                    ],
-                    'romance' => [
-                        // ... (Add romance movies)
-                    ],
-                    'misterio' => [
-                        // ... (Add mystery movies)
-                    ]
-                ];
-
-                // Encode the movies array as JavaScript variable
-                echo "const movies = " . json_encode($movies) . ";";
-            ?>
-
-            movies[genre].forEach(movie => {
-                content += `
-                    <div class="movie-card" style="background-image: url(${movie.image}); height: 500px; width: 200px;">
-                        <div class="content">
-                            <h2>${movie.title}</h2>
-                            <span>${movie.description}</span>
-                        </div>
-                    </div>
-                `;
-            });
-
-            gallery.innerHTML = content;
-        }
-    </script>
 </body>
 </html>
