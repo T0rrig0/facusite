@@ -15,10 +15,22 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch movie data from the database
-$sql = "SELECT * FROM movies";
-$result = $conn->query($sql);
+// Get the movie ID from the URL
+$movieId = isset($_GET['id']) ? $_GET['id'] : '';
 
+// Fetch movie data
+if (!empty($movieId)) {
+    $sql = "SELECT * FROM ranking_movies WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $movieId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $movie = $result->fetch_assoc();
+} else {
+    $movie = null; // Or handle the error in a better way
+}
+
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +38,7 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlixRate - Home</title>
+    <title>FlixRate - Movie Details</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -54,38 +66,23 @@ $result = $conn->query($sql);
             <?php endif; ?>
         </div>
     </nav>
-    <h1>Bem-vindo ao FlixRate</h1>
-    <p>Descubra as melhores séries, explore rankings e veja novidades!</p>
 
-    <!-- Carousel Section -->
-    <div class="carousel-container">
-        <div class="container">
-            <?php
-                // Generate the movie cards HTML
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo '<div class="movie-card" data-movie-id="' . $row['id'] . '" style="background-image: url(' . $row['image'] . ');">';
-                        echo '<div class="content">';
-                        echo '<h2>' . $row['title'] . '</h2>';
-                        if (isset($row['subtitle'])) {
-                            echo '<span><h3>' . $row['subtitle'] . '</h3></span>';
-                        } elseif (isset($row['subtitle_small'])) {
-                            echo '<span><h4>' . $row['subtitle_small'] . '</h4></span>';
-                        }
-                        echo '<span>' . $row['description'] . '</span>';
-                        echo '</div>';
-                        echo '</div>';
-                    }
-                } else {
-                    echo "No movies found.";
-                }
-
-                $conn->close();
-            ?>
-        </div>
+    <div class="movie-container">
+        <?php if ($movie): ?>
+            <h1><?php echo $movie['title']; ?></h1>
+            <img src="<?php echo $movie['image']; ?>" alt="<?php echo $movie['title']; ?>">
+            <div class="movie-info">
+                <p>Description for Genre: <?php echo $movie['genre']; ?></p>
+                <div class="genre">
+                    <a href="#">Fantasia</a> 
+                </div>
+                <button>Votar</button> 
+            </div>
+            <a href="ranking.php"><button>Voltar</button></a>
+        <?php else: ?>
+            <p>Movie not found.</p>
+        <?php endif; ?>
     </div>
-
-    <script src="script.js"></script>
 
 </body>
 </html>

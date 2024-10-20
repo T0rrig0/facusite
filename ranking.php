@@ -89,15 +89,20 @@ $allMoviesResult = $conn->query($sql); // Store result in a separate variable
         <div class="container" id="movie-carousel">
             <?php
                 // Display movies based on the selected genre or all movies
+                // Generate the movie cards HTML
                 if (!empty($genre)) {
                     $result = getMoviesByGenre($genre, $conn);
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                            echo '<div class="movie-card" style="background-image: url(' . $row['image'] . ');">';
+                            // Add a unique data-movie-id attribute
+                            echo '<div class="movie-card" data-movie-id="' . $row['id'] . '" style="background-image: url(' . $row['image'] . ');">';
                             echo '<div class="content">';
                             echo '<h2>' . $row['title'] . '</h2>';
-                            if(isset($row['subtitle'])){echo '<span><h3>'. $row['subtitle'] . '</h3></span>';}
-                            elseif(isset($row['subtitle_small'])){echo '<span><h4>'. $row['subtitle_small'] . '</h4></span>';}
+                            if (isset($row['subtitle'])) {
+                                echo '<span><h3>' . $row['subtitle'] . '</h3></span>';
+                            } elseif (isset($row['subtitle_small'])) {
+                                echo '<span><h4>' . $row['subtitle_small'] . '</h4></span>';
+                            }
                             echo '<span>' . $row['description'] . '</span>';
                             echo '</div>';
                             echo '</div>';
@@ -106,14 +111,18 @@ $allMoviesResult = $conn->query($sql); // Store result in a separate variable
                         echo "No movies found for this genre.";
                     }
                 } else {
-                    // Display all movies 
+                    // Display all movies
                     if ($allMoviesResult->num_rows > 0) {
                         while ($row = $allMoviesResult->fetch_assoc()) {
-                            echo '<div class="movie-card" style="background-image: url(' . $row['image'] . ');">';
+                            // Add a unique data-movie-id attribute
+                            echo '<div class="movie-card" data-movie-id="' . $row['id'] . '" style="background-image: url(' . $row['image'] . ');">';
                             echo '<div class="content">';
                             echo '<h2>' . $row['title'] . '</h2>';
-                            if(isset($row['subtitle'])){echo '<span><h3>'. $row['subtitle'] . '</h3></span>';}
-                            elseif(isset($row['subtitle_small'])){echo '<span><h4>'. $row['subtitle_small'] . '</h4></span>';}
+                            if (isset($row['subtitle'])) {
+                                echo '<span><h3>' . $row['subtitle'] . '</h3></span>';
+                            } elseif (isset($row['subtitle_small'])) {
+                                echo '<span><h4>' . $row['subtitle_small'] . '</h4></span>';
+                            }
                             echo '<span>' . $row['description'] . '</span>';
                             echo '</div>';
                             echo '</div>';
@@ -126,6 +135,8 @@ $allMoviesResult = $conn->query($sql); // Store result in a separate variable
             ?>
         </div>
     </div>
+    
+                <script src="script.js"></script>
 
 </body>
 </html>
