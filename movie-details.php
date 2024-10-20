@@ -25,9 +25,21 @@ if (!empty($movieId)) {
     $stmt->bind_param("i", $movieId);
     $stmt->execute();
     $result = $stmt->get_result();
-    $movie = $result->fetch_assoc();
+
+    if ($result->num_rows > 0) {
+        $movie = $result->fetch_assoc();
+    } else {
+        // If not found in ranking_movies, search in movies
+        $sql = "SELECT * FROM movies WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $movieId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $movie = $result->fetch_assoc(); 
+    }
 } else {
-    $movie = null; // Or handle the error in a better way
+    // Handle the case where movieId is empty (perhaps show an error message)
+    $movie = null;
 }
 
 $conn->close();
@@ -76,7 +88,7 @@ $conn->close();
             <p>Description for <?php echo $movie['title']; ":" ?></p>
             <p><?php echo $movie['description'] ?></p>
             <div class="genre">
-                <a href="#"><?php echo $movie['genre'] ?></a> 
+                <a href="ranking.php?genre=<?php echo $movie['genre'] ?>"><?php echo $movie['genre'] ?></a> 
             </div>
             <!-- Add a rating system -->
             <div class="rating">
@@ -86,7 +98,7 @@ $conn->close();
                 </span>
             </div>
         </div>
-        <a href="ranking.php"><button>Voltar</button></a>
+        <a href="ranking.php"><button>Voltar para Rankings</button></a>
         <?php else: ?>
             <p>Movie not found.</p>
         <?php endif; ?>
