@@ -39,7 +39,21 @@ CREATE TABLE `movies` (
 
 LOCK TABLES `movies` WRITE;
 /*!40000 ALTER TABLE `movies` DISABLE KEYS */;
-INSERT INTO `movies` VALUES (1,'Batman:','O Cavaleiro das Trevas',NULL,'Descrio','imagens/darkknight0.jpg'),(2,'Top Gun:','Maverick',NULL,'Descrio','imagens/topgun2.jpg'),(3,'Deadpool','& Wolverine',NULL,'Description for Deadpool','imagens/deadpool1.jpg'),(4,'Coringa',NULL,NULL,'Description for Joker','imagens/joker3.jpg'),(5,'Venom:','Tempo de Carnificina',NULL,'Description for Venom','imagens/venom4.jpg'),(6,'O Corvo',NULL,NULL,'Description for O Corvo','imagens/corvo5.jpg'),(7,'IT','- Captulo Dois',NULL,'Description for IT','imagens/it6.jpg'),(8,'Vingadores:','Guerra Infinita',NULL,'Description for Vingadores','imagens/vingadores7.jpg'),(9,'Meu Malvado','Favorito 4',NULL,'Description for O Malvado','imagens/malvado8.jpg'),(10,'Em Ritmo de Fuga',NULL,NULL,'Description for Baby Driver','imagens/babydriver9.jpg'),(11,'Velozes e Furiosos:','Desafio em Tquio',NULL,'Description for Velozes e Furiosos','imagens/velozes10.jpg'),(12,'Homem Aranha:','Sem Volta Para Casa',NULL,'Description for Homem Aranha','imagens/aranha11.jpg'),(13,'Harry Potter','e a Pedra Filosofal',NULL,'Description for Harry Potter','imagens/harry12.jpg');
+INSERT INTO `movies` VALUES 
+(1,'Batman:','O Cavaleiro das Trevas',NULL,'Description for Batman','imagens/darkknight0.jpg'),
+(2,'Top Gun:','Maverick',NULL,'Description for Top Gun','imagens/topgun2.jpg'),
+(3,'Deadpool','& Wolverine',NULL,'Description for Deadpool','imagens/deadpool1.jpg'),
+(4,'Coringa',NULL,NULL,'Description for Joker','imagens/joker3.jpg'),
+(5,'Venom:','Tempo de Carnificina',NULL,'Description for Venom','imagens/venom4.jpg'),
+(6,'O Corvo',NULL,NULL,'Description for O Corvo','imagens/corvo5.jpg'),
+(7,'IT','- Captulo Dois',NULL,'Description for IT','imagens/it6.jpg'),
+(8,'Vingadores:','Guerra Infinita',NULL,'Description for Vingadores','imagens/vingadores7.jpg'),
+(9,'Meu Malvado','Favorito 4',NULL,'Description for O Malvado','imagens/malvado8.jpg'),
+(10,'Em Ritmo de Fuga',NULL,NULL,'Description for Baby Driver','imagens/babydriver9.jpg'),
+(11,'Velozes e Furiosos:','Desafio em Tquio',NULL,'Description for Velozes e Furiosos','imagens/velozes10.jpg'),
+(12,'Homem Aranha:','Sem Volta Para Casa',NULL,'Description for Homem Aranha','imagens/aranha11.jpg'),
+(13,'Harry Potter','e a Pedra Filosofal',NULL,'Description for Harry Potter','imagens/harry12.jpg');
+
 /*!40000 ALTER TABLE `movies` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -66,7 +80,48 @@ CREATE TABLE `ranking_movies` (
 
 LOCK TABLES `ranking_movies` WRITE;
 /*!40000 ALTER TABLE `ranking_movies` DISABLE KEYS */;
-INSERT INTO `ranking_movies` VALUES (1,'John Wick','Description for John Wick','imagens/acao1.jpg','acao'),(2,'Mad Max','Description for Mad Max','imagens/acao2.jpg','acao'),(3,'The Raid','Description for The Raid','imagens/acao3.jpg','acao'),(4,'Mission Impossible','Description for Mission Impossible','imagens/acao4.jpg','acao'),(5,'Fast and Furious','Description for Fast and Furious','imagens/acao5.jpg','acao'),(6,'The Hangover','Description for The Hangover','imagens/comedia1.jpg','comedia'),(7,'Bridesmaids','Description for Bridesmaids','imagens/comedia2.jpg','comedia'),(8,'Superbad','Description for Superbad','imagens/comedia3.jpg','comedia');
+INSERT INTO `ranking_movies` VALUES 
+(1,'John Wick','Description for John Wick','imagens/acao1.jpg','acao'),
+(2,'Mad Max','Description for Mad Max','imagens/acao2.jpg','acao'),
+(3,'The Raid','Description for The Raid','imagens/acao3.jpg','acao'),
+(4,'Mission Impossible','Description for Mission Impossible','imagens/acao4.jpg','acao'),
+(5,'Fast and Furious','Description for Fast and Furious','imagens/acao5.jpg','acao'),
+(6,'The Hangover','Description for The Hangover','imagens/comedia1.jpg','comedia'),
+(7,'Bridesmaids','Description for Bridesmaids','imagens/comedia2.jpg','comedia'),
+(8,'Superbad','Description for Superbad','imagens/comedia3.jpg','comedia'),
+(9,'Vovó...Zona','Description for Vovó Zona','imagens/comedia4.jpg','comedia'),
+(10,'Gente Grande','Description for Gente Grande','imagens/comedia5.jpg','comedia'),
+(11, 'NULL', 'Description for', 'imagens/drama1.jpg', 'Drama'),
+(12, 'NULL', 'Description for', 'imagens/drama2.jpg', 'Drama'),
+(13, 'NULL', 'Description for', 'imagens/drama3.jpg', 'Drama'),
+(14, 'NULL', 'Description for', 'imagens/drama4.jpg', 'Drama'),
+(15, 'NULL', 'Description for', 'imagens/drama5.jpg', 'Drama'),
+(16, 'NULL', 'Description for', 'imagens/fantasia1.jpg', 'Fantasia'),
+(17, 'NULL', 'Description for', 'imagens/fantasia2.jpg', 'Fantasia'),
+(18, 'NULL', 'Description for', 'imagens/fantasia3.jpg', 'Fantasia'),
+(19, 'NULL', 'Description for', 'imagens/fantasia4.jpg', 'Fantasia'),
+(20, 'NULL', 'Description for', 'imagens/fantasia5.jpg', 'Fantasia'),
+(21, 'NULL', 'Description for', 'imagens/ficcao1.jpg', 'Ficção'),
+(22, 'NULL', 'Description for', 'imagens/ficcao2.jpg', 'Ficção'),
+(23, 'NULL', 'Description for', 'imagens/ficcao3.jpg', 'Ficção'),
+(24, 'NULL', 'Description for', 'imagens/ficcao4.jpg', 'Ficção'),
+(25, 'NULL', 'Description for', 'imagens/ficcao5.jpg', 'Ficção'),
+(26, 'NULL', 'Description for', 'imagens/terror1.jpg', 'Terror'),
+(27, 'NULL', 'Description for', 'imagens/terror2.jpg', 'Terror'),
+(28, 'NULL', 'Description for', 'imagens/terror3.jpg', 'Terror'),
+(29, 'NULL', 'Description for', 'imagens/terror4.jpg', 'Terror'),
+(30, 'NULL', 'Description for', 'imagens/terror5.jpg', 'Terror'),
+(31, 'NULL', 'Description for', 'imagens/romance1.jpg', 'Romance'),
+(32, 'NULL', 'Description for', 'imagens/romance2.jpg', 'Romance'),
+(33, 'NULL', 'Description for', 'imagens/romance3.jpg', 'Romance'),
+(34, 'NULL', 'Description for', 'imagens/romance4.jpg', 'Romance'),
+(35, 'NULL', 'Description for', 'imagens/romance5.jpg', 'Romance'),
+(36, 'NULL', 'Description for', 'imagens/misterio1.jpg', 'Mistério'),
+(37, 'NULL', 'Description for', 'imagens/misterio2.jpg', 'Mistério'),
+(38, 'NULL', 'Description for', 'imagens/misterio3.jpg', 'Mistério'),
+(39, 'NULL', 'Description for', 'imagens/misterio4.jpg', 'Mistério'),
+(40, 'NULL', 'Description for', 'imagens/misterio5.jpg', 'Mistério');
+
 /*!40000 ALTER TABLE `ranking_movies` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
