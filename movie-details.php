@@ -68,17 +68,25 @@ $conn->close();
     </nav>
 
     <div class="movie-container">
-        <?php if ($movie): ?>
-            <h1><?php echo $movie['title']; ?></h1>
-            <img src="<?php echo $movie['image']; ?>" alt="<?php echo $movie['title']; ?>">
-            <div class="movie-info">
-                <p>Description for Genre: <?php echo $movie['genre']; ?></p>
-                <div class="genre">
-                    <a href="#">Fantasia</a> 
-                </div>
-                <button>Votar</button> 
+        <?php if ($movie):
+        ?>
+        <h1><?php echo $movie['title']; ?></h1>
+        <img src="<?php echo $movie['image']; ?>" alt="<?php echo $movie['title']; ?>">
+        <div class="movie-info">
+            <p>Description for <?php echo $movie['title']; ":" ?></p>
+            <p><?php echo $movie['description'] ?></p>
+            <div class="genre">
+                <a href="#"><?php echo $movie['genre'] ?></a> 
             </div>
-            <a href="ranking.php"><button>Voltar</button></a>
+            <!-- Add a rating system -->
+            <div class="rating">
+                <span>Rating:</span>
+                <span class="star-rating">
+                    <?php echo $movie['rating'] ?>
+                </span>
+            </div>
+        </div>
+        <a href="ranking.php"><button>Voltar</button></a>
         <?php else: ?>
             <p>Movie not found.</p>
         <?php endif; ?>

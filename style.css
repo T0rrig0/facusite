@@ -1,7 +1,26 @@
 /* Definição geral do site */
+:root {
+    --background: black;
+    --primary-color: red;
+    --secondary-color: #222;
+    --light-color: white;
+    --text-color: white;
+    --hover-color: darkred;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --carousel-shadow: #1e0e3e;
+    --carousel-gradient: linear-gradient(
+        0deg,
+        rgba(2, 2, 46, 0.6755077030812324) 0%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    --genre-border: red;
+    --genre-hover-background: red;
+    --genre-hover-text: white;
+}
+
 body {
-    background-color: black;
-    color: white;
+    background-color: var(--background);
+    color: var(--text-color);
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -16,12 +35,12 @@ body {
   }
 
 h1 {
-    color: red;
+    color: var(--primary-color);
 }
 
 /* Barra de navegação horizontal */
 nav {
-    background-color: #222;
+    background-color: var(--secondary-color);
     padding: 15px;
     display: flex;
     justify-content: space-between;
@@ -30,7 +49,7 @@ nav {
 
 nav .logo a{
     font-size: 14pt;
-    color: red;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: bold;
 }
@@ -41,14 +60,14 @@ nav .menu {
 }
 
 nav .menu a {
-    color: white;
+    color: var(--light-color);
     text-decoration: none;
     font-size: 14pt;
     padding: 10px 15px;
 }
 
 nav .menu a:hover {
-    background-color: red;
+    background-color: var(--primary-color);
 }
 
 nav .login-form {
@@ -62,33 +81,33 @@ nav .login-form input {
 }
 
 nav .login-form button {
-    background-color: red;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--light-color);
     padding: 5px 10px;
     border: none;
     cursor: pointer;
 }
 
 nav .login-form button:hover {
-    background-color: darkred;
+    background-color: var(--hover-color);
 }
 
 nav .user-info {
-    color: white;
+    color: var(--light-color);
     display: flex;
     gap: 10px;
 }
 
 nav .user-info button {
-    background-color: red;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--light-color);
     padding: 5px 10px;
     border: none;
     cursor: pointer;
 }
 
 nav .user-info button:hover {
-    background-color: darkred;
+    background-color: var(--hover-color);
 }
 
 /* Configurações da galeria de imagens */
@@ -110,127 +129,7 @@ nav .user-info button:hover {
     height: 100%;
     object-fit: cover; /* Ajusta a imagem dentro da caixa */
     border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
-}
-
-.image-item:hover img {
-    transform: scale(1.05); /* Aumenta ligeiramente a imagem no hover */
-    transition: 0.3s ease; /* Transição suave */
-}
-
-/* Carousel styles */
-body {
-    background-color: black;
-    color: white;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    height: 500px;
-    gap: 10px;
-  }
-
-h1 {
-    color: red;
-}
-
-/* Barra de navegação horizontal */
-nav {
-    background-color: #222;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav .logo a{
-    font-size: 14pt;
-    color: red;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav .menu {
-    display: flex;
-    gap: 20px;
-}
-
-nav .menu a {
-    color: white;
-    text-decoration: none;
-    font-size: 14pt;
-    padding: 10px 15px;
-}
-
-nav .menu a:hover {
-    background-color: red;
-}
-
-nav .login-form {
-    display: flex;
-    gap: 10px;
-}
-
-nav .login-form input {
-    padding: 5px;
-    font-size: 12pt;
-}
-
-nav .login-form button {
-    background-color: red;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    cursor: pointer;
-}
-
-nav .login-form button:hover {
-    background-color: darkred;
-}
-
-nav .user-info {
-    color: white;
-    display: flex;
-    gap: 10px;
-}
-
-nav .user-info button {
-    background-color: red;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    cursor: pointer;
-}
-
-nav .user-info button:hover {
-    background-color: darkred;
-}
-
-/* Configurações da galeria de imagens */
-.image-gallery {
-    display: grid; /* Usando grid layout */
-    grid-template-columns: repeat(4, 1fr); /* 4 colunas */
-    gap: 20px; /* Espaçamento entre as imagens */
-    padding: 20px 0;
-}
-
-.image-item {
-    width: 100%; /* As imagens ocupam toda a coluna */
-    height: 320px; /* Definindo altura fixa */
-    overflow: hidden;
-}
-
-.image-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ajusta a imagem dentro da caixa */
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    box-shadow: 0 4px 8px var(--shadow-color); /* Sombra */
 }
 
 .image-item:hover img {
@@ -264,7 +163,7 @@ nav .user-info button:hover {
     border-radius: 0.5rem;
     transition: 0.5s ease-in-out;
     cursor: pointer;
-    box-shadow: 1px 5px 15px #1e0e3e;
+    box-shadow: 1px 5px 15px var(--carousel-shadow);
     position: relative;
     overflow: hidden;
     background-size: cover;
@@ -273,7 +172,7 @@ nav .user-info button:hover {
 
     .content {
         font-size: 1.5rem;
-        color: #fff;
+        color: var(--light-color);
         display: flex;
         align-items: center;
         padding: 15px;
@@ -281,12 +180,7 @@ nav .user-info button:hover {
         flex-direction: column;
         height: 100%;
         justify-content: flex-end;
-        background: rgb(2, 2, 46);
-        background: linear-gradient(
-            0deg,
-            rgba(2, 2, 46, 0.6755077030812324) 0%,
-            rgba(255, 255, 255, 0) 100%
-        );
+        background: var(--carousel-gradient);
         transform: translatey(100%);
         transition: opacity 0.5s ease-in-out, transform 0.5s 0.2s;
         visibility: hidden;
@@ -312,18 +206,52 @@ nav .user-info button:hover {
 }
 
 .genre_selection a {
-    color: red;
+    color: var(--primary-color);
     padding: 2px;
-    background-color: black;
-    border: 2px solid red;
+    background-color: var(--background);
+    border: 2px solid var(--genre-border);
     text-decoration: none;
     transition: 1s;
 }
 
 .genre_selection a:hover {
-    color: white;
+    color: var(--genre-hover-text);
     padding: 5px;
-    background-color: red;
+    background-color: var(--genre-hover-background);
     text-decoration: underline;
 }
 
+/* ... your existing CSS ... */
+
+.movie-container {
+    /* Center the content horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 20px;
+}
+
+.movie-info {
+    /* ... other styles ... */
+    margin-top: 20px;
+    text-align: justify;
+    line-height: 1.6; /* Adjust line height for readability */
+}
+
+.genre {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.genre a {
+    /* ... other styles ... */
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.genre a:hover {
+    /* ... other styles ... */
+    background-color: rgba(255, 0, 0, 0.2); /* Subtle hover effect */
+}
