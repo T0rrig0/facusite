@@ -104,7 +104,8 @@ $conn->close();
                 </span>
             </div>
         </div>
-        <a href="ranking.php"><button>Voltar para Rankings</button></a>
+        <?php if($movie['id'] <= 40): ?> <a href="ranking.php"><button>Voltar para Rankings</button></a>
+        <?php else: ?> <a href="index.php"><button>Voltar para Home</button></a> <?php endif; ?>
         <?php else: ?>
             <p>Movie not found.</p>
         <?php endif; ?>
