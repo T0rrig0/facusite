@@ -64,6 +64,8 @@ nav .menu a {
     text-decoration: none;
     font-size: 14pt;
     padding: 10px 15px;
+    border-radius: 3px;
+    transition: 1s;
 }
 
 nav .menu a:hover {
@@ -213,13 +215,28 @@ nav .user-info button:hover {
     text-decoration: none;
     transition: 1s;
 }
+.genre_buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding: 0px;
+}
 
-.genre_selection a:hover {
+.genre_buttons a:hover {
     color: var(--genre-hover-text);
-    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
     background-color: var(--genre-hover-background);
     text-decoration: underline;
 }
+
+.genre_buttons a.active {
+    color: var(--genre-hover-text);
+    background-color: var(--genre-hover-background);
+    margin: 0 10px;
+    text-decoration: underline;
+}
+
 
 /* ... your existing CSS ... */
 

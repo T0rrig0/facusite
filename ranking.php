@@ -67,21 +67,20 @@ $allMoviesResult = $conn->query($sql); // Store result in a separate variable
             <?php endif; ?>
         </div>
     </nav>
-    <h1>Bem-vindo ao FlixRate</h1>
-    <p>Descubra as melhores séries, explore rankings e veja novidades!</p>
-
     <!-- Genre Selection Section -->
     <div class="genre_selection">
-        <h2>Explore por Gênero</h2>
-        <a href="ranking.php">Todos</a>
-        <a href="ranking.php?genre=acao">Ação</a>
-        <a href="ranking.php?genre=comedia">Comédia</a>
-        <a href="ranking.php?genre=drama">Drama</a>
-        <a href="ranking.php?genre=fantasia">Fantasia</a>
-        <a href="ranking.php?genre=ficcao">Ficcao</a>
-        <a href="ranking.php?genre=terror">Terror</a>
-        <a href="ranking.php?genre=romance">Romance</a>
-        <a href="ranking.php?genre=misterio">Mistério</a>
+        <h2>Explore por Gênero</h2> <br>
+        <div class="genre_buttons">
+            <a href="ranking.php" id="all-button">Todos</a>
+            <a href="ranking.php?genre=acao" id="acao-button">Ação</a>
+            <a href="ranking.php?genre=comedia" id="comedia-button">Comédia</a>
+            <a href="ranking.php?genre=drama" id="drama-button">Drama</a>
+            <a href="ranking.php?genre=fantasia" id="fantasia-button">Fantasia</a>
+            <a href="ranking.php?genre=ficcao" id="ficcao-button">Ficcao</a>
+            <a href="ranking.php?genre=terror" id="terror-button">Terror</a>
+            <a href="ranking.php?genre=romance" id="romance-button">Romance</a>
+            <a href="ranking.php?genre=misterio" id="misterio-button">Mistério</a>
+        </div>
     </div>
 
     <!-- Carousel Section -->
