@@ -55,7 +55,7 @@ $conn->close();
 </head>
 <body>
     <nav>
-        <span class="logo"><a href="index.php">FlixRate</a></span>
+        <span class="logo"><a href="index.php"><img src="imagens/flixrate2.png" alt="FlixRate" height="100"></a></span>
         <div class="menu">
             <a href="index.php">Home</a>
             <a href="ranking.php">Ranking</a>
@@ -88,7 +88,7 @@ $conn->close();
             <p>Description for <?php echo $movie['title']; ":" ?></p>
             <p><?php echo $movie['description'] ?></p>
             <div class="genre">
-                <a href="ranking.php?genre=<?php echo $movie['genre'] ?>"><?php echo $movie['genre'] ?></a> 
+                <?php if(isset($movie['genre'])){?><a href="ranking.php?genre=<?php echo $movie['genre'] ?>"><?php echo $movie['genre'] ?></a><?php}?> 
             </div>
             <!-- Add a rating system -->
             <div class="rating">
@@ -98,7 +98,8 @@ $conn->close();
                 </span>
             </div>
         </div>
-        <a href="ranking.php"><button>Voltar para Rankings</button></a>
+         <?php if($movie['id']<=40):?><a href="ranking.php"><button>Voltar para Rankings</button></a>
+        <?php else:?><a href="index.php"><button>Voltar para Home</button></a><?php endif; ?>
         <?php else: ?>
             <p>Movie not found.</p>
         <?php endif; ?>
