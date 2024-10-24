@@ -37,9 +37,13 @@ if (!empty($movieId)) {
         $result = $stmt->get_result();
         $movie = $result->fetch_assoc(); 
     }
+
+    // Check for genre before rendering HTML
+    $hasGenre = isset($movie['genre']) && !empty($movie['genre']); 
 } else {
     // Handle the case where movieId is empty (perhaps show an error message)
     $movie = null;
+    $hasGenre = false; // Make sure it's false if movie is null
 }
 
 $conn->close();
@@ -55,7 +59,7 @@ $conn->close();
 </head>
 <body>
     <nav>
-        <span class="logo"><a href="index.php"><img src="imagens/flixrate2.png" alt="FlixRate" height="100"></a></span>
+        <span class="logo"><a href="index.php">FlixRate</a></span>
         <div class="menu">
             <a href="index.php">Home</a>
             <a href="ranking.php">Ranking</a>
@@ -88,7 +92,9 @@ $conn->close();
             <p>Description for <?php echo $movie['title']; ":" ?></p>
             <p><?php echo $movie['description'] ?></p>
             <div class="genre">
-                <?php if(isset($movie['genre'])){?><a href="ranking.php?genre=<?php echo $movie['genre'] ?>"><?php echo $movie['genre'] ?></a><?php}?> 
+                <?php if ($hasGenre): ?>
+                    <a href="ranking.php?genre=<?php echo $movie['genre'] ?>"><?php echo $movie['genre'] ?></a> 
+                <?php endif; ?>
             </div>
             <!-- Add a rating system -->
             <div class="rating">
@@ -98,8 +104,7 @@ $conn->close();
                 </span>
             </div>
         </div>
-         <?php if($movie['id']<=40):?><a href="ranking.php"><button>Voltar para Rankings</button></a>
-        <?php else:?><a href="index.php"><button>Voltar para Home</button></a><?php endif; ?>
+        <a href="ranking.php"><button>Voltar para Rankings</button></a>
         <?php else: ?>
             <p>Movie not found.</p>
         <?php endif; ?>

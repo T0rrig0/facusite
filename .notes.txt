@@ -1,0 +1,11 @@
+sudo docker cp database.sql 4c0ec601d7ad:/database.sql
+
+sudo docker exec -it 4c0ec601d7ad /bin/bash
+
+mysql -u root -p
+
+use home_movies;
+
+source database.sql;
+
+select * from ranking_movies; #check changes
