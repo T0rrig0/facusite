@@ -59,7 +59,7 @@ $conn->close();
 </head>
 <body>
     <nav>
-        <span class="logo"><a href="index.php">FlixRate</a></span>
+        <span class="logo"><a href="index.php"><img src="imagens/flixrate2.png" alt="FlixRate" height="100"></a></span>
         <div class="menu">
             <a href="index.php">Home</a>
             <a href="ranking.php">Ranking</a>
