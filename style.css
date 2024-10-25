@@ -157,7 +157,9 @@ nav .user-info button:hover {
 .carousel-container .container {
     display: flex;
     overflow-x: auto;
-    white-space: nowrap;
+    white-space: wrap;
+    text-align: center;
+    overflow-y: scroll;
 }
 
 .movie-card {
@@ -249,9 +251,8 @@ nav .user-info button:hover {
 }
 
 .movie-info {
-    /* ... other styles ... */
     margin-top: 20px;
-    text-align: justify;
+    text-align: center;
     line-height: 1.6; /* Adjust line height for readability */
 }
 
@@ -263,12 +264,10 @@ nav .user-info button:hover {
 }
 
 .genre a {
-    /* ... other styles ... */
     padding: 5px 10px;
     border-radius: 5px;
 }
 
 .genre a:hover {
-    /* ... other styles ... */
     background-color: rgba(255, 0, 0, 0.2); /* Subtle hover effect */
 }
