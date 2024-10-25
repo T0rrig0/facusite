@@ -60,28 +60,26 @@ $result = $conn->query($sql);
     <!-- Carousel Section -->
     <div class="carousel-container">
         <div class="container">
-            <?php
-                // Generate the movie cards HTML
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo '<div class="movie-card" data-movie-id="' . $row['id'] . '" style="background-image: url(' . $row['image'] . ');">';
-                        echo '<div class="content">';
-                        echo '<h2>' . $row['title'] . '</h2>';
-                        if (isset($row['subtitle'])) {
-                            echo '<span><h3>' . $row['subtitle'] . '</h3></span>';
-                        } elseif (isset($row['subtitle_small'])) {
-                            echo '<span><h4>' . $row['subtitle_small'] . '</h4></span>';
-                        }
-                        echo '<span>' . $row['description'] . '</span>';
-                        echo '</div>';
-                        echo '</div>';
+        <?php
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<div class="movie-card" data-movie-id="' . $row['id'] . '" style="background-image: url(' . $row['image'] . ');">';
+                    echo '<div class="content">';
+                    echo '<h2>' . $row['title'] . '</h2>';
+                    if (isset($row['subtitle'])) {
+                        echo '<span><h3>' . $row['subtitle'] . '</h3></span>';
+                    } elseif (isset($row['subtitle_small'])) {
+                        echo '<span><h4>' . $row['subtitle_small'] . '</h4></span>';
                     }
-                } else {
-                    echo "No movies found.";
+                    echo '<span>' . $row['description'] . '</span>'; 
+                    echo '</div>'; // close the content div
+                    echo '</div>'; // close the movie-card div
                 }
-
-                $conn->close();
-            ?>
+            } else {
+                echo "No movies found.";
+            }
+            $conn->close();
+        ?>
         </div>
     </div>
 
