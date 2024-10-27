@@ -16,7 +16,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch movie data from the database
-$sql = "SELECT * FROM movies";
+$sql = "SELECT * FROM all_movies";
 $result = $conn->query($sql);
 
 ?>
@@ -54,7 +54,7 @@ $result = $conn->query($sql);
             <?php endif; ?>
         </div>
     </nav>
-    <h1>Bem-vindo ao FlixRate</h1>
+    <h1>Bem-vindo</h1>
     <p>Descubra as melhores séries, explore rankings e veja novidades!</p>
 
     <!-- Carousel Section -->

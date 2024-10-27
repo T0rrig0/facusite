@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 
 // Function to fetch movies by genre
 function getMoviesByGenre($genre, $conn) {
-    $sql = "SELECT * FROM ranking_movies WHERE genre = ?";
+    $sql = "SELECT * FROM all_movies WHERE genre = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $genre); 
     $stmt->execute();
@@ -29,7 +29,7 @@ function getMoviesByGenre($genre, $conn) {
 $genre = isset($_GET['genre']) ? $_GET['genre'] : ''; // Default to empty if not set
 
 // Fetch all movies (for the initial display)
-$sql = "SELECT * FROM ranking_movies";
+$sql = "SELECT * FROM all_movies";
 $allMoviesResult = $conn->query($sql); // Store result in a separate variable
 
 ?>

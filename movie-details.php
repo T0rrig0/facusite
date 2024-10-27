@@ -20,7 +20,7 @@ $movieId = isset($_GET['id']) ? $_GET['id'] : '';
 
 // Fetch movie data
 if (!empty($movieId)) {
-    $sql = "SELECT * FROM ranking_movies WHERE id = ?";
+    $sql = "SELECT * FROM all_movies WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $movieId);
     $stmt->execute();
@@ -30,7 +30,7 @@ if (!empty($movieId)) {
         $movie = $result->fetch_assoc();
     } else {
         // If not found in ranking_movies, search in movies
-        $sql = "SELECT * FROM movies WHERE id = ?";
+        $sql = "SELECT * FROM all_movies WHERE id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $movieId);
         $stmt->execute();
