@@ -287,20 +287,28 @@ nav .user-info button:hover {
     flex-wrap: wrap;
     gap: 5px;
     margin-top: 10px;
+    justify-content: center;    
 }
 
 .genre a {
-    padding: 5px 10px;
+    margin: 5px;
     border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    transition: 1s;
+    border: 2px solid var(--hover-color);
 }
 
 .genre a:hover {
-    background-color: rgba(255, 0, 0, 0.2); /* Subtle hover effect */
+    color: var(--genre-hover-text);
+    padding: 10px;
+    background-color: var(--genre-hover-background);
+    text-decoration: underline;
 }
 
 .star-rating{
     height: 46px;
-    padding 0 10px;
+    padding: 0 10px;
 }
 
 .star-rating:not(:checked) > input{
@@ -337,3 +345,4 @@ nav .user-info button:hover {
 .star-rating > label:hover ~ input:checked ~ label{
     color: #c59b06;
 }
+
