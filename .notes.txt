@@ -8,4 +8,4 @@ use home_movies;
 
 source database.sql;
 
-select * from ranking_movies; #check changes
+select * from all_movies; #check changes
