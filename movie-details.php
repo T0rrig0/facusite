@@ -87,6 +87,7 @@ $conn->close();
         <?php if ($movie):
         ?>
         <h1><?php echo $movie['title']; ?></h1>
+        <?php if(isset($movie['subtitle'])): ?><span><h2 style="color:red"><?php echo $movie['subtitle']; ?></h2></span><?php endif; ?>
         <img src="<?php echo $movie['image']; ?>" alt="<?php echo $movie['title']; ?>">
         <div class="movie-info">
             <p>Description for <?php echo $movie['title']; ":" ?></p>
