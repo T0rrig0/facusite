@@ -1,0 +1,9 @@
+Victor Torrigo: Concretizou grande parte do esqueleto e auxliou no css do site, adicionou a sessions, também alocando funções para cada gênero do site.
+
+Marcos Vinicius: Escreveu as respostas do questionário, alterou a descrição dos filmes
+
+Arthur Arthur-ZM: Revitalizou e expandiu o site, adicionando funcionalidades como ranking, busca por gênero, visualização de detalhes e opções de tela cheia, além de construir a estrutura de base de dados e o sistema de exibição dos filmes. Também foi o principal responsável por definir os estilos CSS e JavaScript do site.
+
+Guilherme ikemati: Editou os resumo dos filmes e finalizou o sistema de gêneros dando tag a todos os filmes
+
+Heitor Costa: Fez a logo, o sistema de avaliação, implementou subtítulos aos filmes, traduziu o nome deles para português, fez a descrição de alguns filmes, alterou algumas fotos e corrigiu alguns bugs menores.
