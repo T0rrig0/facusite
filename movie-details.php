@@ -4,7 +4,7 @@ session_start();
 // Database connection details
 $servername = "localhost:3306";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "home_movies";
 
 // Create connection
