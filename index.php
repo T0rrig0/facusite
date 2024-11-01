@@ -35,7 +35,6 @@ $result = $conn->query($sql);
         <div class="menu">
             <a href="index.php">Home</a>
             <a href="ranking.php">Ranking</a>
-            <a href="#">Novos</a>
         </div>
         <div class="login-area">
             <?php if (isset($_SESSION['usuario'])): ?>
