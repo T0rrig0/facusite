@@ -4,7 +4,7 @@ Histórico de atualizações: https://github.com/t0rrig0/facusite/commits?author
 Marcos Vinicius: Escreveu as respostas do questionário, alterou a descrição dos filmes.
 Histórico de atualizações: https://github.com/t0rrig0/facusite/commits?author=marvin315
 
-Arthur Arthur-ZM: Revitalizou e expandiu o site, adicionando funcionalidades como ranking, busca por gênero, visualização de detalhes e opções de tela cheia, além de construir a estrutura de base de dados e o sistema de exibição dos filmes. Também foi o principal responsável por definir os estilos CSS e JavaScript do site.
+Arthur Mazagão: Revitalizou e expandiu o site, adicionando funcionalidades como ranking, busca por gênero, visualização de detalhes e opções de tela cheia, além de construir a estrutura de base de dados e o sistema de exibição dos filmes. Também foi o principal responsável por definir os estilos CSS e JavaScript do site.
 Histórico de atualizações : https://github.com/t0rrig0/facusite/commits?author=arthur-zm
 
 Guilherme ikemati: Editou os resumo dos filmes e finalizou o sistema de gêneros dando tag a todos os filmes.
