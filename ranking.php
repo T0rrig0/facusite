@@ -121,8 +121,7 @@ $allMoviesResult = $conn->query($sql); // Store result in a separate variable
             ?>
         </div>
     </div>
-    
-                <script src="script.js"></script>
-
+    <big><a href="https://github.com/T0rrig0/facusite/tree/main">github repository</a></big>
+    <script src="script.js"></script>
 </body>
 </html>
